@@ -1,9 +1,22 @@
-const customers = ['Tommy', 'Tess', 'James', 'Anna', 'Travis', 'Stefano', 'Gabe', 'Tuna', 'Queen'];
+const customers = [
+  'Tommy',
+  'Tess',
+  'James',
+  'Anna',
+  'Travis',
+  'Stefano',
+  'Gabe',
+  'Tuna',
+  'Queen',
+];
 
 const customerList = document.querySelector('.customerList');
 const ticket = document.querySelector('.ticket');
 const noTicket = document.querySelector('.noTicket');
 const checkBtn = document.querySelector('#checkBtn');
+let noTicketArray = [];
+let ticketArray = [];
+
 
 // Sanitize customer array for display
 const sanCustomers = customers.map((customer) => {
@@ -18,9 +31,11 @@ checkBtn.addEventListener('click', handleCheckTickets);
 function handleCheckTickets() {
   for (i = 0; i < customers.length; i++) {
     if (customers[i] === 'Tess' || customers[i] === 'Stefano') {
-      noTicket.textcontent += `${customers[i]}, `;
+      noTicketArray.push(` ${customers[i]}`);
+      noTicket.textContent = noTicketArray.toString() + '.';
     } else {
-      ticket.textContent += `${customers[i]}, `;
+      ticketArray.push(` ${customers[i]}`)
+      ticket.textContent = ticketArray.toString() + '.';
     }
   }
 }
